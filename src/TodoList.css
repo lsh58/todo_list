@@ -103,6 +103,28 @@ text-decoration: none;
     outline-style: none;
     padding: 7px 20px;
 }
+.typeArea__editBtn{
+    background: none;
+    border: 1px solid #fefefe;
+    border-radius: 5px;
+    color: #fefefe;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    outline-style: none;
+    padding: 7px 20px;
+}
+.typeArea__cancelBtn{
+    background: url('./images/close.png') no-repeat center / cover;
+    border: none;
+    border-radius: 5px;
+    color: #fefefe;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    outline-style: none;
+    padding: 7px 10px;
+}
 .list__wrapper{
     align-items: center;
     display: flex;

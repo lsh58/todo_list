@@ -123,6 +123,15 @@ text-decoration: none;
     margin-left: 0;
     width: 20px;
 }
+.list__checkBox__checked{
+    background: #f00;
+    border:none;
+    border-radius: 20%;
+    outline-style: none;
+    height: 20px;
+    margin-left: 0;
+    width: 20px;
+}
 .list__thing{
     color: #fefefe;
     font-weight: bold;

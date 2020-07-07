@@ -60,6 +60,7 @@ text-decoration: none;
     margin: 5% auto;
     width: 35%;
     padding: 10px 10px;
+    min-height: 600px;
 }
 .todo__title{
     color:#fefefe;

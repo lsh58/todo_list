@@ -12,6 +12,9 @@ const TodoList = () => {
         {id:4, thing:'생활코딩 강의듣기'},
     ]);
 
+    const [mode, setMode] = useState('Create'); 
+    const [thing, setThing] = useState('Type what will you do'); 
+
     const nextId = useRef(5);
 
     const onCreate = e =>{
@@ -26,6 +29,9 @@ const TodoList = () => {
           nextId.current+=1;
           e.target.create.value="";
           e.target.create.focus();
+        setThing(
+          'Type what will you do'
+        )
     }
 
     const onclear = e =>{
@@ -40,9 +46,18 @@ const TodoList = () => {
         }
     }
 
-    const onedit = id => {
-        console.log(id)
-        console.log(Create)
+    const onedit = e => {
+      e.preventDefault();
+      for(let i=0; i<user.length; i++){
+        if(user[i].id === parseInt(e.target.id)){
+            var editThing = user[i].thing;
+              setThing(
+                editThing
+              );
+          break;
+        }
+      }
+      setMode('Edit');
     }
 
     const onremove = id => {
@@ -52,7 +67,7 @@ const TodoList = () => {
     return (
         <div className="todo__wrapper">
           <h1 className="todo__title">TO-DO LIST</h1>
-          <Create onCreate={onCreate}/>
+          <Create mode={mode} thing={thing} onCreate={onCreate}/>
           <ul className="list__wrapper">
             {user.map( v => {
             return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;

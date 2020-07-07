@@ -14,7 +14,8 @@ const TodoList = () => {
 
     const [mode, setMode] = useState('Create'); 
     const [thing, setThing] = useState('Type what will you do'); 
-
+    const [target, setTarget] = useState('');
+    const [value, setValue] = useState('');
     const nextId = useRef(5);
 
     const onCreate = e =>{
@@ -57,6 +58,7 @@ const TodoList = () => {
           break;
         }
       }
+      setTarget(e.target.id);
       setMode('Edit');
     }
 
@@ -64,10 +66,37 @@ const TodoList = () => {
       setUser(user.filter(user => user.id !== id))
     }
 
+    const oncancel = e => {
+      e.preventDefault();
+      setValue('');
+      setThing(
+        'Type what will you do'
+      )
+      setMode('Create');
+    }
+
+    const onconfirm = e => {
+      e.preventDefault();
+      for(let i=0; i<user.length; i++){
+        if(user[i].id === parseInt(target)){
+            user[i].thing = e.target.create.value;
+        }
+      }
+      setValue('');
+      setThing(
+        'Type what will you do'
+      )
+      setMode('Create');
+    }
+
+    const onchange = e => {
+      setValue(e.target.value);
+    }; 
+    
     return (
         <div className="todo__wrapper">
           <h1 className="todo__title">TO-DO LIST</h1>
-          <Create mode={mode} thing={thing} onCreate={onCreate}/>
+          <Create mode={mode} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
           <ul className="list__wrapper">
             {user.map( v => {
             return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;

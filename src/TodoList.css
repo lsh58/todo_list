@@ -72,6 +72,7 @@ text-decoration: none;
 }
 .typeArea__wrapper{
     display:flex;
+    align-items: center;
     margin: 30px auto 0;
     width: 90%;
 }
@@ -82,6 +83,7 @@ text-decoration: none;
     color: #fefefe;
     outline-style: none;
     letter-spacing: 0.02rem;
+    line-height: 2rem;
     width: 100%;
 }
 .typeArea__create::placeholder{
@@ -111,6 +113,7 @@ text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 0.05rem;
+    margin-left: 10px;
     outline-style: none;
     padding: 7px 20px;
 }
@@ -122,8 +125,10 @@ text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 0.05rem;
+    margin-left: 10px;
     outline-style: none;
-    padding: 7px 10px;
+    width: 18px;
+    height: 18px;
 }
 .list__wrapper{
     align-items: center;

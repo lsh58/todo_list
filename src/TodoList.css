@@ -124,7 +124,7 @@ text-decoration: none;
     width: 20px;
 }
 .list__checkBox__checked{
-    background: #f00;
+    background: url('./images/correct.png') no-repeat center / cover;
     border:none;
     border-radius: 20%;
     outline-style: none;

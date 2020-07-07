@@ -28,13 +28,23 @@ const TodoList = () => {
           e.target.create.focus();
     }
 
-    const onremove = id => {
-        setUser(user.filter(user => user.id !== id));
+    const onclear = e =>{
+        e.preventDefault();
+        if(e.target.classList.contains('list__checkBox__checked')){
+          e.target.className='list__checkBox'
+        }
+        else{
+          e.target.className='list__checkBox__checked'
+        }
     }
 
     const onedit = id => {
         console.log(id)
         console.log(Create)
+    }
+    
+    const onremove = id => {
+        setUser(user.filter(user => user.id !== id));
     }
 
     return (
@@ -43,7 +53,7 @@ const TodoList = () => {
           <Create onCreate={onCreate}/>
           <ul className="list__wrapper">
             {user.map( v => {
-            return <User key={v.id} userInfo={v} onEdit={onedit} onRemove={onremove} />;
+            return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;
             })}
           </ul>
         </div>

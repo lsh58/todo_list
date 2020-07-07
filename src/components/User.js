@@ -1,8 +1,9 @@
-import React from 'react';
+import React  from 'react';
 
 
 const User = ({ userInfo, onClear, onEdit, onRemove}) => {
-
+ 
+  
   return (
     <li>
      <button className="list__checkBox" onClick={onClear}></button>
@@ -14,3 +15,4 @@ const User = ({ userInfo, onClear, onEdit, onRemove}) => {
 };
 
 export default React.memo(User);
+

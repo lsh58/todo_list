@@ -116,7 +116,8 @@ text-decoration: none;
     width: 90%;
 }
 .list__checkBox{
-    border:none;
+    background: none;
+    border:1px solid #fefefe;
     border-radius: 20%;
     outline-style: none;
     height: 20px;

@@ -44,9 +44,9 @@ const TodoList = () => {
         console.log(id)
         console.log(Create)
     }
-    
+
     const onremove = id => {
-        setUser(user.filter(user => user.id !== id));
+      setUser(user.filter(user => user.id !== id))
     }
 
     return (

@@ -8,7 +8,7 @@ const User = ({ userInfo, onClear, onEdit, onRemove}) => {
     <li>
      <button className="list__checkBox" onClick={onClear}></button>
      <p className="list__thing">{userInfo.thing}</p>
-     <button className="list__edit" onClick={()=>onEdit(userInfo.id)}>EDIT</button>
+     <button id={userInfo.id} className="list__edit" onClick={onEdit}>EDIT</button>
      <button className="list__remove" onClick={()=>onRemove(userInfo.id)}>DEL</button>
     </li>
   );

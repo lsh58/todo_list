@@ -12,7 +12,7 @@ function Create({mode, thing, onCreate}){
     return (
       <form className="typeArea__wrapper" action="/" onSubmit={onCreate} method="post">
         <input className="typeArea__create" name="create" placeholder={thing} ></input>
-        <button className="typeArea__cancleBtn"></button>
+        <button className="typeArea__cancelBtn"></button>
         <button type="submit" className="typeArea__editBtn">Edit</button>
       </form>
     );

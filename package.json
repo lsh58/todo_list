@@ -2,14 +2,16 @@
   "name": "todo_list",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://lsh58.github.io/todo_list/",
+  "homepage": "https://lsh58.github.io/todo_list/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "styled-media-query": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

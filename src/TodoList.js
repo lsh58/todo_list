@@ -2,6 +2,8 @@ import React, {useState, useRef} from 'react';
 import './TodoList.css';
 import Create from './components/Create';
 import User from './components/User';
+import styled from "styled-components";
+import { generateMedia } from 'styled-media-query';
 
 const TodoList = () => {
    
@@ -94,7 +96,7 @@ const TodoList = () => {
     }; 
     
     return (
-        <div className="todo__wrapper">
+        <Wrapper>
           <h1 className="todo__title">TO-DO LIST</h1>
           <Create isEditable={isEditable} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
           <ul className="list__wrapper">
@@ -102,9 +104,28 @@ const TodoList = () => {
             return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;
             })}
           </ul>
-        </div>
+        </Wrapper>
       );
 }
 
+const customMedia = generateMedia({
+  lgDesktop: '1350px',
+  mdDesktop: '1150px',
+  tablet: '960px',
+  smTablet: '740px'
+});
+
+const Wrapper = styled.div`
+  background: linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
+  border-radius: 10px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  margin: 5% auto;
+  width: 35%;
+  padding: 10px 10px;
+  min-height: 600px;
+  ${customMedia.lessThan('smTablet')`
+   width: 90%;
+  `}
+`;
 
 export default TodoList;

@@ -12,7 +12,7 @@ const TodoList = () => {
         {id:4, thing:'생활코딩 강의듣기'},
     ]);
 
-    const [mode, setMode] = useState('Create'); 
+    const [isEditable, setIsEditable] = useState(false); 
     const [thing, setThing] = useState('Type what will you do'); 
     const [target, setTarget] = useState('');
     const [value, setValue] = useState('');
@@ -59,7 +59,7 @@ const TodoList = () => {
         }
       }
       setTarget(e.target.id);
-      setMode('Edit');
+      setIsEditable(true);
     }
 
     const onremove = id => {
@@ -72,7 +72,7 @@ const TodoList = () => {
       setThing(
         'Type what will you do'
       )
-      setMode('Create');
+      setIsEditable(false);
     }
 
     const onconfirm = e => {
@@ -86,7 +86,7 @@ const TodoList = () => {
       setThing(
         'Type what will you do'
       )
-      setMode('Create');
+      setIsEditable(false);
     }
 
     const onchange = e => {
@@ -96,7 +96,7 @@ const TodoList = () => {
     return (
         <div className="todo__wrapper">
           <h1 className="todo__title">TO-DO LIST</h1>
-          <Create mode={mode} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
+          <Create isEditable={isEditable} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
           <ul className="list__wrapper">
             {user.map( v => {
             return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;
@@ -104,7 +104,6 @@ const TodoList = () => {
           </ul>
         </div>
       );
-
 }
 
 

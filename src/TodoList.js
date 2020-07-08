@@ -18,7 +18,7 @@ const TodoList = () => {
     const [thing, setThing] = useState('Type what will you do'); 
     const [target, setTarget] = useState('');
     const [value, setValue] = useState('');
-    const nextId = useRef(5);
+    const nextId = useRef(user.length);
 
     const onCreate = e =>{
         e.preventDefault();

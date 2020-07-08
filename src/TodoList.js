@@ -52,7 +52,7 @@ const TodoList = () => {
       for(let i=0; i<user.length; i++){
         if(user[i].id === parseInt(e.target.id)){
             var editThing = user[i].thing;
-              setThing(
+              setValue(
                 editThing
               );
           break;

@@ -117,6 +117,7 @@ const customMedia = generateMedia({
 
 const Wrapper = styled.div`
   background: linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
+  background: -webkit-linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
   border-radius: 10px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.1);
   margin: 5% auto;

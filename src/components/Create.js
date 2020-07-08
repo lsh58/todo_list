@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Create({mode, thing, value, onCreate, onCancel, onConfirm, onChange}){
+function Create({mode, thing, value, onCreate, onCancel, onConfirm, onChange, isEditable}){
   if(mode==='Create'){
     return (
       <form className="typeArea__wrapper" action="/" onSubmit={onCreate} method="post">

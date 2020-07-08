@@ -196,3 +196,17 @@ text-decoration: none;
     padding: 7px 0;
     width: 10%;
 }
+
+
+@media all and (max-width:479px) { 
+    .todo__wrapper{
+        background: linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
+        border-radius: 10px;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+        margin: 5% auto;
+        width: 90%;
+        padding: 10px 10px;
+        min-height: 600px;
+    }
+  
+}

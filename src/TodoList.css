@@ -53,9 +53,6 @@ a{
 text-decoration: none;
 }
   
-.todo__wrapper{
-
-}
 .todo__title{
     color:#fefefe;
     font-size: 2rem;
@@ -74,6 +71,7 @@ text-decoration: none;
     background: none;
     border:none;
     border-bottom: 1px solid #fefefe;
+    border-radius: 0;
     color: #fefefe;
     outline-style: none;
     letter-spacing: 0.02rem;

@@ -127,6 +127,7 @@ const Wrapper = styled.div`
   width: 35%;
   padding: 10px 10px;
   min-height: 600px;
+  min-width:420px;
   ${customMedia.lessThan('smTablet')`
    width: 90%;
   `}

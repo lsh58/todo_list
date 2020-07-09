@@ -19,15 +19,20 @@ const User = ({ target, contents, isChange, userInfo, onConfirm, onEdit, onRemov
     <li>
       <button className="list__checkBox" onClick={onclear}></button>
       { isChange && userInfo.id === target ?
+      <>
       <input type="text" className="list__thing" value={contents} onChange={onChange}></input>
-      :
-      <input id={userInfo.id} type="text" className="list__thing" value={userInfo.thing} onClick={onEdit} readOnly></input>
-      }
       <button className="list__edit" onClick={onConfirm}>EDIT</button>
+      </>
+      :
+      <>
+      <input id={userInfo.id} type="text" className="list__thing" value={userInfo.thing} onClick={onEdit} readOnly></input>
+      <button className="list__empty"></button>
+      </>
+      }
       <button className="list__remove" onClick={()=>onRemove(userInfo.id)}>DEL</button>
     </li>
   );
 };
 
-export default React.memo(User);
+export default User;
 

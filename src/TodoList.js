@@ -7,18 +7,13 @@ import { generateMedia } from 'styled-media-query';
 
 const TodoList = () => {
    
-    const [user, setUser]= useState([
-        {id:1, thing:'스터디준비'},
-        {id:2, thing:'기술면접 풀이'},
-        {id:3, thing:'알고리즘 공부'},
-        {id:4, thing:'생활코딩 강의듣기'},
-    ]);
+    const [user, setUser]= useState([]);
 
     const [isChange, setIsChange] = useState(false); 
     const [value, setValue] = useState('');
     const [contents, setContents] = useState('');
     const [target, setTarget] = useState('');
-    const nextId = useRef(5);
+    const nextId = useRef(1);
   
     const oncreate = e =>{
         e.preventDefault();
@@ -37,7 +32,7 @@ const TodoList = () => {
 
     const onedit = e => {
       e.preventDefault();
-      setTarget(e.target.id);
+      setTarget(parseInt(e.target.id));
       setContents(e.target.value);
       setIsChange(true);
     }
@@ -50,12 +45,13 @@ const TodoList = () => {
       e.preventDefault();
       const changeValue = {
         id : target,
-        thing :  e.target.value
+        thing : contents
       }
       setUser(
         user.map((user)=>user.id === target ? {...user, ...changeValue} : user)
       );
       setValue('');
+      setIsChange(false);
     }
 
     const onchange = e => {

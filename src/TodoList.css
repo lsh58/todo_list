@@ -220,6 +220,19 @@ body{
     padding: 7px 0;
     width: 10%;
 }
+.list__empty{
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: #fefefe;
+    font-weight: bold;
+    font-size: 0.6rem;
+    letter-spacing: 0.05rem;
+    margin-left: 10px;
+    outline-style: none;
+    padding: 7px 0;
+    width: 10%;
+}
 .list__remove{
     background: none;
     border: 1px solid #fefefe;

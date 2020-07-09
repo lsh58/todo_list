@@ -186,6 +186,9 @@ body{
     width: 20px;
 }
 .list__thing{
+    background: none;
+    border: none;
+    outline-style: none;
     color: #fefefe;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 100;

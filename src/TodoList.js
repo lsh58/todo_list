@@ -14,15 +14,15 @@ const TodoList = () => {
         {id:4, thing:'생활코딩 강의듣기'},
     ]);
 
-    const [isEditable, setIsEditable] = useState(false); 
-    const [thing, setThing] = useState('Type what will you do'); 
-    const [target, setTarget] = useState('');
+    const [isChange, setIsChange] = useState(false); 
     const [value, setValue] = useState('');
+    const [contents, setContents] = useState('');
+    const [target, setTarget] = useState('');
     const nextId = useRef(5);
-    const inputEl = useRef(null);
-
+  
     const oncreate = e =>{
         e.preventDefault();
+        setIsChange(false);
         setUser([
           ...user,
           {
@@ -33,52 +33,40 @@ const TodoList = () => {
         nextId.current+=1;
         setValue('');
         e.target.create.focus();
-        setThing(
-          'Type what will you do'
-        )
     }
 
     const onedit = e => {
       e.preventDefault();
-      setValue(
-        user[parseInt(e.target.id)-1].thing);
-      setTarget(parseInt(e.target.id));
-      setIsEditable(true);
+      setTarget(e.target.id);
+      setContents(e.target.value);
+      setIsChange(true);
     }
 
     const onremove = id => {
-      setUser(user.filter(user => user.id !== id))
-    }
-
-    const oncancel = e => {
-      e.preventDefault();
-      setValue('');
-      setThing(
-        'Type what will you do'
-      )
-      setIsEditable(false);
+      setUser(user.filter(user => user.id !== id));
     }
 
     const onconfirm = e => {
       e.preventDefault();
       const changeValue = {
-        id : parseInt(target),
-        thing :  e.target.create.value
+        id : target,
+        thing :  e.target.value
       }
       setUser(
         user.map((user)=>user.id === target ? {...user, ...changeValue} : user)
       );
       setValue('');
-      setThing(
-        'Type what will you do'
-      )
-      setIsEditable(false);
     }
 
     const onchange = e => {
       setValue(e.target.value);
     }; 
-    
+
+    const onchangecontents = e => {
+      setContents(e.target.value);
+    }; 
+
+
     let today = new Date();
     let year = today.getFullYear(); // 년도
     let month = today.getMonth() + 1;  // 월
@@ -100,10 +88,23 @@ const TodoList = () => {
     return (
         <Wrapper>
           <h1 className="todo__title">{titleDay}<span>{titleDate}</span></h1>
-          <Create inputEl={inputEl} isEditable={isEditable} thing={thing} value={value} onCreate={oncreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
+          <Create 
+          value={value} 
+          onCreate={oncreate} 
+          onChange={onchange}/>
           <ul className="list__wrapper">
             {user.map( v => {
-            return <User key={v.id} userInfo={v} onEdit={onedit} onRemove={onremove} />;
+            return <User 
+            target={target}
+            contents={contents}
+            key={v.id}
+            isChange={isChange} 
+            userInfo={v} 
+            onEdit={onedit} 
+            onConfirm={onconfirm}
+            onRemove={onremove}
+            onChange={onchangecontents}
+            />;
             })}
           </ul>
         </Wrapper>

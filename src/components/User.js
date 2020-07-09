@@ -1,7 +1,7 @@
 import React  from 'react';
 
 
-const User = ({ userInfo, onEdit, onRemove}) => {
+const User = ({ target, contents, isChange, userInfo, onConfirm, onEdit, onRemove, onChange}) => {
 
   const onclear = e =>{
       e.preventDefault();
@@ -14,12 +14,16 @@ const User = ({ userInfo, onEdit, onRemove}) => {
         e.target.nextSibling.style.textDecoration="line-through"
       }
   }
-    
+
   return (
     <li>
       <button className="list__checkBox" onClick={onclear}></button>
-      <p className="list__thing">{userInfo.thing}</p>
-      <button id={userInfo.id} className="list__edit" onClick={onEdit}>EDIT</button>
+      { isChange && userInfo.id === target ?
+      <input type="text" className="list__thing" value={contents} onChange={onChange}></input>
+      :
+      <input id={userInfo.id} type="text" className="list__thing" value={userInfo.thing} onClick={onEdit} readOnly></input>
+      }
+      <button className="list__edit" onClick={onConfirm}>EDIT</button>
       <button className="list__remove" onClick={()=>onRemove(userInfo.id)}>DEL</button>
     </li>
   );

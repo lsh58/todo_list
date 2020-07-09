@@ -52,14 +52,22 @@ border-spacing: 0;
 a{
 text-decoration: none;
 }
-  
+
 .todo__title{
     color:#fefefe;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.05rem;
     margin-top: 20px;
-    text-align: center;
+    margin-left: 20px;
+    text-align: left;
+}
+.todo__title span{
+    color:#fefefe;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.05rem;  
+    margin-left: 10px;
 }
 .typeArea__wrapper{
     display:flex;
@@ -73,6 +81,7 @@ text-decoration: none;
     border-bottom: 1px solid #fefefe;
     border-radius: 0;
     color: #fefefe;
+    font-size: 17px;
     outline-style: none;
     letter-spacing: 0.02rem;
     line-height: 2rem;

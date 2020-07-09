@@ -18,7 +18,7 @@ const TodoList = () => {
     const [thing, setThing] = useState('Type what will you do'); 
     const [target, setTarget] = useState('');
     const [value, setValue] = useState('');
-    const nextId = useRef(user.length);
+    const nextId = useRef(5);
 
     const onCreate = e =>{
         e.preventDefault();
@@ -95,9 +95,27 @@ const TodoList = () => {
       setValue(e.target.value);
     }; 
     
+    let today = new Date();
+    let year = today.getFullYear(); // 년도
+    let month = today.getMonth() + 1;  // 월
+    let date = today.getDate();  // 날짜
+    let day = today.getDay();
+    function dateCal(){
+      if(month <=9){
+        month = "0"+month;
+      }
+      if(date <=9){
+        date = "0"+date;
+      }
+    }
+    dateCal();
+    let week = ['Sun','Mon','Tues','Wednes','Thurs','Fri','Satur'];
+    var titleDay = week[day]+"Day"
+    var titleDate = `${year}${month}${date}`;
+
     return (
         <Wrapper>
-          <h1 className="todo__title">TO-DO LIST</h1>
+          <h1 className="todo__title">{titleDay}<span>{titleDate}</span></h1>
           <Create isEditable={isEditable} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
           <ul className="list__wrapper">
             {user.map( v => {

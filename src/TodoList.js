@@ -19,48 +19,30 @@ const TodoList = () => {
     const [target, setTarget] = useState('');
     const [value, setValue] = useState('');
     const nextId = useRef(5);
+    const inputEl = useRef(null);
 
-    const onCreate = e =>{
+    const oncreate = e =>{
         e.preventDefault();
         setUser([
-            ...user,
-            {
-              id: nextId.current,
-              thing: e.target.create.value
-            },
-          ]);
-          nextId.current+=1;
-          e.target.create.value="";
-          e.target.create.focus();
+          ...user,
+          {
+            id: nextId.current,
+            thing: e.target.create.value
+          },
+        ]);
+        nextId.current+=1;
+        setValue('');
+        e.target.create.focus();
         setThing(
           'Type what will you do'
         )
     }
 
-    const onclear = e =>{
-        e.preventDefault();
-        if(e.target.classList.contains('list__checkBox__checked')){ //체크되어있으면
-          e.target.className='list__checkBox'
-          e.target.nextSibling.style.textDecoration="none"
-        }
-        else{//체크 안되어 있으면
-          e.target.className='list__checkBox__checked'
-          e.target.nextSibling.style.textDecoration="line-through"
-        }
-    }
-
     const onedit = e => {
       e.preventDefault();
-      for(let i=0; i<user.length; i++){
-        if(user[i].id === parseInt(e.target.id)){
-            var editThing = user[i].thing;
-              setValue(
-                editThing
-              );
-          break;
-        }
-      }
-      setTarget(e.target.id);
+      setValue(
+        user[parseInt(e.target.id)-1].thing);
+      setTarget(parseInt(e.target.id));
       setIsEditable(true);
     }
 
@@ -79,11 +61,13 @@ const TodoList = () => {
 
     const onconfirm = e => {
       e.preventDefault();
-      for(let i=0; i<user.length; i++){
-        if(user[i].id === parseInt(target)){
-            user[i].thing = e.target.create.value;
-        }
+      const changeValue = {
+        id : parseInt(target),
+        thing :  e.target.create.value
       }
+      setUser(
+        user.map((user)=>user.id === target ? {...user, ...changeValue} : user)
+      );
       setValue('');
       setThing(
         'Type what will you do'
@@ -116,10 +100,10 @@ const TodoList = () => {
     return (
         <Wrapper>
           <h1 className="todo__title">{titleDay}<span>{titleDate}</span></h1>
-          <Create isEditable={isEditable} thing={thing} value={value} onCreate={onCreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
+          <Create inputEl={inputEl} isEditable={isEditable} thing={thing} value={value} onCreate={oncreate} onCancel={oncancel} onConfirm={onconfirm} onChange={onchange}/>
           <ul className="list__wrapper">
             {user.map( v => {
-            return <User key={v.id} userInfo={v} onClear={onclear} onEdit={onedit} onRemove={onremove} />;
+            return <User key={v.id} userInfo={v} onEdit={onedit} onRemove={onremove} />;
             })}
           </ul>
         </Wrapper>
@@ -139,8 +123,7 @@ const Wrapper = styled.div`
   background: -ms-linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
   background: -moz-linear-gradient(-180deg, rgb(17, 111, 197), rgb(67, 32, 137));
   border-radius: 10px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 3px 5px 0 rgba(0, 0, 0, 0.1);
-  margin: 5% auto;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   width: 35%;
   padding: 10px 10px;
   min-height: 600px;

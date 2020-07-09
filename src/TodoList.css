@@ -52,7 +52,15 @@ border-spacing: 0;
 a{
 text-decoration: none;
 }
-
+body{
+    background: #333;
+}
+#root{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .todo__title{
     color:#fefefe;
     font-size: 2rem;
@@ -64,7 +72,7 @@ text-decoration: none;
 }
 .todo__title span{
     color:#fefefe;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.05rem;  
     margin-left: 10px;
@@ -101,10 +109,10 @@ text-decoration: none;
     color: #fefefe;
     font-weight: bold;
     font-size: 1rem;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.03rem;
     margin-left: 10px;
     outline-style: none;
-    padding: 7px 20px;
+    padding: 7px 10px;
 }
 .typeArea__editBtn{
     background: none;
@@ -119,7 +127,7 @@ text-decoration: none;
     padding: 7px 20px;
 }
 .typeArea__cancelBtn{
-    background: url('./images/close.png') no-repeat center / cover;
+    background: none;
     border: none;
     border-radius: 5px;
     color: #fefefe;
@@ -128,8 +136,23 @@ text-decoration: none;
     letter-spacing: 0.05rem;
     margin-left: 10px;
     outline-style: none;
+    position: relative;
     width: 18px;
     height: 18px;
+}
+.typeArea__cancelBtn span{
+    background: #fefefe;
+    border-radius: 2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.typeArea__cancelBtn span:nth-of-type(1){
+    transform: rotate(45deg);
+}
+.typeArea__cancelBtn span:nth-of-type(2){
+    transform: rotate(-45deg);
 }
 .list__wrapper{
     align-items: center;
@@ -187,7 +210,7 @@ text-decoration: none;
     border-radius: 5px;
     color: #fefefe;
     font-weight: bold;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     letter-spacing: 0.05rem;
     margin-left: 10px;
     outline-style: none;
@@ -200,7 +223,7 @@ text-decoration: none;
     border-radius: 5px;
     color: #fefefe;
     font-weight: bold;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     letter-spacing: 0.05rem;
     margin-left: 10px;
     outline-style: none;

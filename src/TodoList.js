@@ -111,7 +111,8 @@ const customMedia = generateMedia({
   lgDesktop: '1350px',
   mdDesktop: '1150px',
   tablet: '960px',
-  smTablet: '740px'
+  smTablet: '740px',
+  mobile:'600px'
 });
 
 const Wrapper = styled.div`
@@ -124,8 +125,10 @@ const Wrapper = styled.div`
   width: 35%;
   padding: 10px 10px;
   min-height: 600px;
-  min-width:380px;
-  ${customMedia.lessThan('smTablet')`
+  ${customMedia.lessThan('tablet')`
+   width: 50%;
+  `}
+  ${customMedia.lessThan('mobile')`
    width: 90%;
   `}
 `;

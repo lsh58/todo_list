@@ -8,12 +8,11 @@ import { generateMedia } from 'styled-media-query';
 const TodoList = () => {
    
     const [user, setUser]= useState([]);
-
     const [isChange, setIsChange] = useState(false); 
     const [value, setValue] = useState('');
     const [contents, setContents] = useState('');
     const [target, setTarget] = useState('');
-    const nextId = useRef(1);
+    const nextId = useRef(2);
   
     const oncreate = e =>{
         e.preventDefault();
@@ -32,7 +31,7 @@ const TodoList = () => {
 
     const onedit = e => {
       e.preventDefault();
-      setTarget(parseInt(e.target.id));
+      setTarget(parseInt(e.target.name));
       setContents(e.target.value);
       setIsChange(true);
     }

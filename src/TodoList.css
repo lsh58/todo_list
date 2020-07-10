@@ -106,6 +106,7 @@ body{
     background: none;
     border: 1px solid #fefefe;
     border-radius: 5px;
+    box-shadow: none;
     color: #fefefe;
     font-weight: bold;
     font-size: 1rem;
@@ -113,6 +114,7 @@ body{
     margin-left: 10px;
     outline-style: none;
     padding: 7px 10px;
+    transition: .35s linear
 }
 .typeArea__editBtn{
     background: none;
@@ -161,13 +163,13 @@ body{
     margin:30px auto 10px;
 }
 .list__wrapper li{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-top: 10px;
     width: 90%;
 }
 .list__checkBox{
+    display: none;
+}
+.list__checkBox+label{
     background: none;
     border:1px solid #fefefe;
     border-radius: 20%;
@@ -176,7 +178,7 @@ body{
     margin-left: 0;
     width: 20px;
 }
-.list__checkBox__checked{
+.list__checkBox:checked+label{
     background: url('./images/correct.png') no-repeat center / cover;
     border:none;
     border-radius: 20%;
@@ -184,6 +186,16 @@ body{
     height: 20px;
     margin-left: 0;
     width: 20px;
+}
+.list__checkBox:checked+label+.list__thing{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.list__editwrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .list__thing{
     background: none;
@@ -195,17 +207,7 @@ body{
     font-size: 1rem;
     letter-spacing: 0.05rem;
     margin-left: 10px;
-    width: 70%;
-}
-.list__thing__checked{
-    color: #fefefe;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    letter-spacing: 0.05rem;
-    margin-left: 10px;
-    width: 70%;
-    text-decoration: line-through;
+    width: 60%;
 }
 .list__edit{
     background: none;

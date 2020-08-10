@@ -6,7 +6,24 @@ import styled from 'styled-components';
 import { generateMedia } from 'styled-media-query';
 
 const TodoList = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState([
+    {
+      id: 1,
+      thing: '프로젝트 생성하기',
+    },
+    {
+      id: 2,
+      thing: '컴포넌트 스타일링하기',
+    },
+    {
+      id: 3,
+      thing: 'Context 만들기',
+    },
+    {
+      id: 4,
+      thing: '기능 구현하기',
+    },
+  ]);
   const [isChange, setIsChange] = useState(false);
   const [value, setValue] = useState('');
   const [contents, setContents] = useState('');

@@ -9,7 +9,7 @@ const TodoList = () => {
   const [user, setUser] = useState([
     {
       id: 1,
-      thing: '프로젝트 생성하기',
+      thing: '프로젝트 생성하기^^',
     },
     {
       id: 2,
